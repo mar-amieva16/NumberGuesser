@@ -6,7 +6,7 @@ import StartGameScreen from './screens/StartGameScreen';
 export default function App() {
   return (
     <View style={styles.screen}>
-      <Header title={"Hello There!"} />
+      <Header title={"Guess the Number"} />
       <StartGameScreen />
     </View>
   );
@@ -14,6 +14,7 @@ export default function App() {
 
 const styles = StyleSheet.create({
   screen: {
+    flexDirection: 'column',
     flex: 1
   },
 });
