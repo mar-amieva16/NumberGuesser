@@ -6,7 +6,7 @@ import Input from '../Components/Input';
 import NumberContainer from '../Components/NumberContainer';
 
 
-const StartGameScreen =()=>{
+const StartGameScreen =(onStartGame)=>{
 
     const [enteredValue,setEnteredValue] = useState('')
     const [confirmed,setConfirmed] = useState(false)
@@ -36,6 +36,9 @@ const StartGameScreen =()=>{
         <Card>
             <Text>You Selected:</Text>
             <NumberContainer>{selectedNumber}</NumberContainer>
+            <Button 
+            title='Ready to start game?'
+            onPress={()=>onStartGame()} />
         </Card>
         )
     }
