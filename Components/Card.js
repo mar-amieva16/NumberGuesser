@@ -1,5 +1,6 @@
 import React from 'react'
 import {View, StyleSheet} from 'react-native';
+import Colors from '../Constants/Colors';
 
 const Card = ({children,style}) => {
   return  <View style={[styles.card, style]}>{children}</View>
@@ -9,6 +10,7 @@ const Card = ({children,style}) => {
 const styles=StyleSheet.create({
     card: {
         width: 300,
+        margin:10,
         maxWidth: '80%',
         alignItems: 'center',
         shadowColor: 'black',

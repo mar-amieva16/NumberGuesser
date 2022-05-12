@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text,TextInput, View } from 'react-native'
 import Colors from '../Constants/Colors'
 
 const NumberContainer = (props) => {
@@ -24,6 +24,6 @@ const styles= StyleSheet.create({
         color: Colors.secondary,
         fontSize: 22
     }
-})
+});
 
 export default NumberContainer
