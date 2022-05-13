@@ -1,10 +1,12 @@
 import React, { useState, useRef, useEffect } from 'react'
-import { StyleSheet, Text,TextInput, View, Button, Alert } from 'react-native'
+import { StyleSheet, Text,TextInput, View, Button, Alert, Image } from 'react-native'
 import NumberContainer from '../Components/NumberContainer';
 import Card from '../Components/Card';
 import Colors from '../Constants/Colors';
 
+
 import {direction_ as d} from '../Constants/constants';
+
 
 
 /*const generateRandomBetween = (min, max, exclude) => {

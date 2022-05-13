@@ -1,7 +1,8 @@
 import React from 'react'
-import { StyleSheet, Text, View, Button, TextInput } from 'react-native';
+import { StyleSheet, Text, View, Button, TextInput, Image } from 'react-native';
 import Card from '../Components/Card';
 import Colors from '../Constants/Colors';
+
 
 const restart = (rounds) => {
   rounds = -1;

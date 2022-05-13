@@ -1,9 +1,10 @@
 import { useState } from 'react'
-import { StyleSheet, Text, TextInput, View, Button } from 'react-native'
+import { StyleSheet, Text, TextInput, View, Button, Image } from 'react-native'
 import Card from '../Components/Card'
 import Colors from '../Constants/Colors'
 import Input from '../Components/Input';
 import NumberContainer from '../Components/NumberContainer';
+
 
 import { globalIndexes as limit } from '../Constants/constants';
 import { useFetchPokemon } from '../hooks/useFetchPokemon';
@@ -16,6 +17,7 @@ const StartGameScreen = ({ onStartGame }) => {
     const [selectedNumber, setSelectedNUmber] = useState(undefined)
 
     const [name, setName] = useState(undefined)
+    const [puchamon,setPuchamon]=useState({name:'', img:''})
 
     const numberInputHandler = input => {
         setEnteredValue(input.replace(/[^0-9]/g, ''))
@@ -32,11 +34,13 @@ const StartGameScreen = ({ onStartGame }) => {
         setConfirmed(true)
         setSelectedNUmber(chosenNumber)
         setEnteredValue('')
+        setPokemon()
     }
 
     const setPokemon = async () => {
-        const [name] = await useFetchPokemon(enteredValue);
+        const [name,img] = await useFetchPokemon(enteredValue);
         setName(name)
+        setPuchamon({name:name, img:img})
     }
 
     let confirmedOutput;
@@ -50,6 +54,11 @@ const StartGameScreen = ({ onStartGame }) => {
                     title='Ready to start game?'
                     onPress={() => onStartGame(selectedNumber)}
                     color={Colors.tertiary}
+                />
+                <Text>{name}</Text>
+                <Image
+                    style={styles.image}
+                    source={{ uri: puchamon.img}}
                 />
             </Card>
         )
@@ -89,7 +98,6 @@ const StartGameScreen = ({ onStartGame }) => {
                 </View>
             </Card>
             {confirmedOutput}
-            {name}
         </View>
     )
 }
@@ -121,6 +129,11 @@ const styles = StyleSheet.create({
     input: {
         width: 50,
         textAlign: 'center'
+    },
+    image:{
+        width: 250,
+        height:250,
+        resizeMode: 'stretch',
     }
 });
 
